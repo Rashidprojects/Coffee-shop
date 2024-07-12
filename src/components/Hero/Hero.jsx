@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BgImage from "../../assets/coffee-bg.jpg"
 import BlackCoffee from "../../assets/coffee-cup.png"
 import Navbar from '../Navbar/Navbar'
 import { motion } from "framer-motion"
+import { FaFacebook,FaTwitter,FaInstagram } from "react-icons/fa"
 
 const bgImage = {
   backgroundImage: `url(${BgImage})`,
@@ -12,12 +13,13 @@ const bgImage = {
 }
 
 const Hero = () => {
+  const [sidebar,setSidebar] = useState(false)
   return (
     <main style={bgImage}>
-        <section className='min-h-[750px] w-full'>
+        <section className='relative min-h-[750px] w-full'>
             <div className="container">
                 {/* Navbar Section */}
-                <Navbar />
+                <Navbar sidebar={sidebar} setSidebar={setSidebar} />
                 {/* Hero Section */}
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center min-h-[850px]'>
                   {/* text content section */}
@@ -31,7 +33,9 @@ const Hero = () => {
                         damping:10,
                         delay:1,
                       }}
-                      className=' text-7xl font-bold leading-tight ml-14'>Blvck Tumbler</motion.h1>
+                      className=' text-7xl font-bold leading-tight ml-14'>Blvck Tumbler
+                    </motion.h1>
+
                     <motion.div 
                       initial={{ opacity:0, y:-100 }}
                       animate={{ opacity:1, y:0 }}
@@ -50,7 +54,9 @@ const Hero = () => {
                       </div>
                       <div className='absolute -top-6 -left-10 w-[250px] h-[190px] bg-gray-700/25'></div>
                     </motion.div>
+
                   </div>
+
                   {/* hero image section */}
                   <div className='relative'>
                     <motion.img 
@@ -120,6 +126,40 @@ const Hero = () => {
 
                 </div>
             </div>
+
+            {/* sidebar Menu section */}
+
+            {
+              sidebar && (
+                <motion.div
+                 initial={{ x: "100%" }}
+                      animate={{ x:0 }}
+                      transition={{
+                        damping:10,
+                       
+                      }}
+                 className='absolute top-0 right-0 w-[140px] h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10'>
+                  <div className='w-full h-full flex justify-center items-center '>
+                    <div className='flex flex-col justify-center items-center gap-6 text-white'>
+                      {/* line */}
+                      <div className='w-[1px] h-[70px] bg-white'></div>
+                          {/* Social Icons */}
+                          <div className='inline-block p-2 rounded-full cursor-pointer border border-white'>
+                            <FaFacebook className='text-2xl'/>
+                          </div>
+                          <div className='inline-block p-2 rounded-full cursor-pointer border border-white'>
+                            <FaTwitter className='text-2xl'/>
+                          </div>
+                          <div className='inline-block p-2 rounded-full cursor-pointer border border-white'>
+                            <FaInstagram className='text-2xl'/>
+                          </div>
+                      <div className='w-[1px] h-[70px] bg-white'></div>
+
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            }
         </section>
     </main>
   )
