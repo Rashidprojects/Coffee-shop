@@ -72,9 +72,13 @@ const Services = () => {
           <motion.div 
             variants={cardVariants}
             className='text-center p-4 flex flex-col items-center space-y-6' >
-            <img src={service.image} alt="" />
-            <h1>{service.title}</h1>
-            <p>{service.subtitle}</p>
+            <img src={service.image} alt="" 
+                className='img-shadow2 max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer'
+            />
+            <div className='space-y-2'>
+              <h1 className='text-2xl font-bold text-primary'>{service.title}</h1>
+              <p className='text-darkGray'>{service.subtitle}</p>
+            </div>
           </motion.div>
         ))}
 

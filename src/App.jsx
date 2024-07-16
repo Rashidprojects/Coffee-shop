@@ -1,5 +1,6 @@
 import Hero from "./components/Hero/Hero"
 import Services from "./components/Services/Services"
+import WhereToBuy from "./components/WhereToBuy/WhereToBuy"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Hero />
       <Services />
+      <WhereToBuy />
     </>
   )
 }
