@@ -4,7 +4,11 @@ import WorldMap from '../../assets/world-map.png'
 
 const WhereToBuy = () => {
   return (
-    <div className='container my-36'>
+    <motion.div 
+     initial="hidden"
+     whileInView={"visible"}
+     viewport={{ amount: 0.8 }}
+     className='container my-36'>
       <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 place-items-center'>
         {/* form section */}
         <div className='space-y-8'>
@@ -48,13 +52,13 @@ const WhereToBuy = () => {
                     type:"spring",
                     stiffness:100,
                     damping:10,
-                    delay: 0.6
+                    delay: 0.6,
                 }}
                 className='flex items-center gap-4'>
                 <input 
                     type="text" 
                     placeholder='Country'
-                    className='input-style w-full '
+                    className='input-style w-full'
                 />
                 <input 
                     type="text" 
@@ -63,8 +67,8 @@ const WhereToBuy = () => {
                 />
             </motion.div>
             <motion.button 
-                initial={{ opacity:0, y: 100 }}
-                whileInView={{opacity:1, y:0}}
+                initial={{ opacity:0, x: -100 }}
+                whileInView={{opacity:1, x:0}}
                 transition={{
                     type:"spring",
                     stiffness:100,
@@ -87,7 +91,7 @@ const WhereToBuy = () => {
                 src={WorldMap} alt="" className='w-fullsm-w-[500px] mx-auto' />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

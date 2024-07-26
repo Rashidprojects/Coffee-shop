@@ -33,7 +33,7 @@ const Services = () => {
       {/* header section */}
 
       <motion.div 
-         initial="hidden"
+        initial="hidden"
         whileInView={"visible"}
         viewport={{ amount: 0.2 }}
         className='text-center max-w-lg mx-auto space-y-2'>
